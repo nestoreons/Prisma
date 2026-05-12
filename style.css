@@ -130,156 +130,6 @@ body {
     transform: translateX(0);
 }
 
-.floating-whatsapp.expanded .whatsapp-button {
-    width: auto;
-    min-width: 220px;
-    height: 60px;
-    padding: 0 22px;
-    border-radius: 22px;
-    gap: 10px;
-    transition: all 0.45s ease;
-}
-
-.call-button-text {
-    display: none;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.floating-whatsapp.expanded .call-button-text {
-    display: inline-block;
-}
-
-.call-button {
-    background: var(--gradient-primary);
-}
-
-.call-button:hover {
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-}
-
-.contact-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.contact-modal.active {
-    display: flex;
-}
-
-.contact-modal-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.55);
-    backdrop-filter: blur(3px);
-}
-
-.contact-modal-card {
-    position: relative;
-    z-index: 1;
-    width: min(100%, 460px);
-    background: var(--bg-surface);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-xl);
-    padding: 32px;
-    box-shadow: var(--shadow-xl);
-}
-
-.contact-modal-card h3 {
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: var(--text-primary);
-}
-
-.contact-modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 50%;
-    background: var(--bg-card);
-    color: var(--text-secondary);
-    font-size: 28px;
-    line-height: 1;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.contact-modal-close:hover {
-    background: #E0F2FE;
-    color: var(--primary-blue);
-}
-
-.contact-modal-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.contact-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 14px 16px;
-    background: var(--bg-card);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-light);
-}
-
-.contact-row span {
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.contact-row a {
-    color: var(--primary-blue);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.faq-modal-button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 16px 18px;
-    border: none;
-    border-radius: var(--radius-md);
-    background: var(--gradient-primary);
-    color: var(--text-on-primary);
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.faq-modal-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.faq-modal-arrow {
-    font-size: 24px;
-    line-height: 1;
-}
-
-.pricing-actions .btn-primary {
-    width: 100%;
-}
-
-
 /* =============== HEADER =============== */
 header {
     position: sticky;
@@ -615,13 +465,7 @@ input:focus, select:focus, textarea:focus {
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
-/* Ограничение растягивания textarea */
-textarea {
-    resize: vertical;   /* можно растягивать только по вертикали */
-    min-height: 30px;  /* стартовая высота */
-    max-height: 300px;  /* максимальная высота */
-    overflow-y: auto;   /* появляется скролл если текста много */
-}
+
 .course-pills {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -829,7 +673,7 @@ textarea {
 }
 
 .trust-icon img{
-    weight: 150px;
+    width: 150px;
     height: 150px;
     margin-bottom:15px;
 }
@@ -1280,7 +1124,6 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 25px;
-}
 }
 .cta-inline-frase{
     text-align:center;
@@ -1815,7 +1658,7 @@ footer {
 
 .case-image {
     position: relative;
-    height: 320px;
+    height: 200px;
     overflow: hidden;
 }
 
@@ -2015,7 +1858,7 @@ footer {
 }
 
 .faq-question {
-    padding: 16px;
+    padding: 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2207,13 +2050,791 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
-    .contact-modal-card {
+/* =============== FINAL RESPONSIVE POLISH =============== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+section {
+    scroll-margin-top: 86px;
+}
+
+.case-card,
+.track-card,
+.mentor-card,
+.pricing-card,
+.testimonial-card,
+.trust-item,
+.stat-card,
+.final-cta-card,
+.booking-banner {
+    min-width: 0;
+}
+
+.topnav.active {
+    display: flex !important;
+}
+
+/* аккуратная сетка для средних экранов */
+@media (max-width: 1180px) {
+    .wrap {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .topnav {
+        gap: 4px;
+    }
+
+    .navlink {
+        padding: 9px 10px;
+        font-size: 14px;
+    }
+
+    .topnav .btn {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .hero-visual {
+        margin-left: 0;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        padding: 56px 0 64px;
+    }
+
+    .hero .wrap {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        max-width: 620px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .achievement-badge.corner {
+        right: 0;
+    }
+
+    .trust-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tracks-grid,
+    .cases-grid,
+    .mentors-grid,
+    .pricing-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pricing-card.featured,
+    .pricing-card.featured:hover {
+        transform: none;
+    }
+
+    .final-cta-card {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .cta-content {
+        text-align: center;
+    }
+
+    .cta-features {
+        align-items: center;
+    }
+}
+
+/* полноценная мобильная версия */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    .wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    header {
+        position: sticky;
+    }
+
+    .nav {
+        padding: 12px 0;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 130;
+    }
+
+    .topnav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 12px;
+        right: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid var(--border-light);
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .topnav .navlink,
+    .topnav .btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero {
+        padding: 36px 0 44px;
+    }
+
+    .hero-title {
+        font-size: clamp(30px, 8vw, 42px);
+        line-height: 1.08;
+    }
+
+    .hero-subtitle {
+        font-size: 17px;
+        margin-bottom: 24px;
+    }
+
+    .hero-badge {
+        font-size: 13px;
+        padding: 8px 12px;
+        margin-bottom: 18px;
+    }
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 330px;
+        margin: 0 auto 22px;
+    }
+
+    .hero-stats .stat {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-md);
+        padding: 10px 12px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .hero-image-wrapper {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .achievement-badge.corner {
+        width: 96px;
+        height: 96px;
+        right: 0;
+        bottom: 0;
+    }
+
+    .achievement-badge.corner .number {
+        font-size: 24px;
+        margin-left: 18px;
+        margin-top: 18px;
+    }
+
+    .achievement-badge.corner .label {
+        font-size: 12px;
+        margin-left: 12px;
+    }
+
+    .booking-banner {
+        width: calc(100% - 32px);
+        padding: 18px;
+        margin: 20px auto 0;
+        border-radius: var(--radius-lg);
+    }
+
+    .booking-top-row {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        text-align: left;
+        margin-bottom: 18px;
+    }
+
+    .urgency-badge {
+        justify-content: center;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 16px;
+    }
+
+    .urgency-timer {
+        justify-content: space-between;
+        text-align: left;
+        gap: 10px;
+    }
+
+    .urgency-timer span {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .timer {
+        margin-left: 0;
+        font-size: 22px;
+    }
+
+    .form-row,
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+        padding: 13px 14px;
+    }
+
+    .course-pills-horizontal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .course-pills-horizontal .course-pill {
+        min-width: 0;
+        justify-content: center;
+        font-size: 14px;
+        padding: 10px 8px;
+    }
+
+    .course-pills-icon {
+        width: 26px;
+        height: 26px;
+        flex: 0 0 auto;
+    }
+
+    .form-footer {
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .checkbox {
+        align-items: flex-start;
+        line-height: 1.35;
+    }
+
+    .guarantee {
+        text-align: left;
+        line-height: 1.35;
+    }
+
+    .btn,
+    .btn-large {
+        width: 100%;
+        padding: 14px 18px;
+        font-size: 16px;
+    }
+
+    .after-hero-cta {
+        padding: 28px 0;
+        margin-top: 0;
+    }
+
+    .cta-inline {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+    }
+
+    .cta-inline img {
+        width: 76px;
+        height: 76px;
+    }
+
+    .cta-inline p {
+        width: 100%;
+        max-width: 360px;
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: clamp(26px, 7vw, 34px);
+        line-height: 1.15;
+    }
+
+    .section-sub {
+        font-size: 16px;
+        margin-bottom: 32px;
+    }
+
+    .trust,
+    .results,
+    #tracks,
+    .process,
+    #mentors,
+    #testimonials,
+    #cases,
+    .pricing,
+    #faq,
+    #final-cta {
+        padding: 52px 0;
+    }
+
+    .trust-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 32px;
+    }
+
+    .trust-item,
+    .stat-card,
+    .track-card,
+    .testimonial-card,
+    .pricing-card,
+    .mentor-card,
+    .case-card {
+        border-radius: var(--radius-lg);
+    }
+
+    .trust-item,
+    .stat-card {
+        padding: 24px 18px;
+    }
+
+    .trust-icon img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .track-card {
+        padding: 22px 18px;
+    }
+
+    .track-header {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 12px;
+        justify-content: initial;
+        align-items: center;
+        min-height: auto;
+    }
+
+    .track-icon {
+        position: static;
+        transform: none;
+    }
+
+    .track-icon img,
+    .track-icon .blender-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .track-header h3 {
+        text-align: left;
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .track-features li {
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .track-features li img {
+        width: 34px;
+        height: 34px;
+        padding-right: 0;
+        flex: 0 0 auto;
+    }
+
+    .track-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .track-actions .price {
+        text-align: center;
+    }
+
+    .process-timeline {
+        margin-top: 32px;
+    }
+
+    .process-timeline::before {
+        left: 22px;
+    }
+
+    .process-item {
+        margin-bottom: 28px;
+    }
+
+    .process-step {
+        width: 44px;
+        height: 44px;
+        font-size: 17px;
+        margin-right: 14px;
+    }
+
+    .mentor-card {
+        padding: 24px 18px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mentor-photo img {
+        width: 132px;
+        height: 132px;
+    }
+
+    .mentor-stats {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 18px;
+    }
+
+    .testimonial-card {
+        padding: 24px 18px;
+    }
+
+    .testimonial-author {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .stars {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .case-image {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .case-content {
+        padding: 20px 18px;
+    }
+
+    .case-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .case-stat {
+        background: var(--bg-card);
+        border-radius: var(--radius-md);
+        padding: 10px;
+    }
+
+    .pricing-card {
         padding: 28px 20px;
+    }
+
+    .pricing-header .price {
+        font-size: 38px;
+    }
+
+    .faq-grid {
+        margin-top: 32px;
+    }
+
+    .faq-question {
+        padding: 18px 16px;
+        gap: 14px;
+    }
+
+    .faq-question h3 {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .faq-answer.active {
+        padding: 0 16px 18px;
+    }
+
+    .final-cta-card {
+        padding: 28px 18px;
+        border-radius: var(--radius-lg);
+        gap: 24px;
+    }
+
+    .cta-content h2 {
+        font-size: 28px;
+    }
+
+    .cta-content p {
+        font-size: 16px;
+    }
+
+    .cta-features {
+        align-items: stretch;
+    }
+
+    .feature {
+        background: var(--bg-card);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-md);
+        padding: 10px 12px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 38px 0 28px;
+        text-align: center;
+    }
+
+    .footer-contacts {
+        align-items: center;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        text-align: left;
+    }
+
+    .footer-meta {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-legals {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .floating-whatsapp {
+        right: 16px;
+        bottom: 16px;
+        max-width: calc(100vw - 32px);
+    }
+
+    .floating-whatsapp.expanded .whatsapp-button {
+        min-width: 0;
+        width: auto;
+        max-width: calc(100vw - 32px);
+        height: 54px;
+        padding: 0 16px;
+        border-radius: 18px;
+    }
+
+    .whatsapp-button {
+        width: 54px;
+        height: 54px;
+    }
+
+    .call-button-text {
+        font-size: 14px;
+    }
+
+    .whatsapp-tooltip {
+        display: none;
+    }
+
+    .contact-modal {
+        padding: 14px;
+    }
+
+    .contact-modal-card {
+        padding: 28px 18px 20px;
+        border-radius: var(--radius-lg);
+    }
+
+    .contact-modal-card h3 {
+        font-size: 24px;
+        padding-right: 40px;
     }
 
     .contact-row {
         flex-direction: column;
         gap: 4px;
+        padding: 12px 14px;
+    }
+}
+
+/* маленькие телефоны */
+@media (max-width: 480px) {
+    .wrap {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .hero {
+        padding-top: 28px;
+    }
+
+    .hero-title {
+        font-size: 29px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .hero-image-wrapper {
+        max-width: 340px;
+    }
+
+    .booking-banner {
+        width: calc(100% - 24px);
+        padding: 16px;
+    }
+
+    .course-pills-horizontal {
+        grid-template-columns: 1fr;
+    }
+
+    .course-pills-horizontal .course-pill {
+        font-size: 15px;
+        min-height: 44px;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .track-header {
+        grid-template-columns: 48px 1fr;
+    }
+
+    .track-icon img,
+    .track-icon .blender-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .track-header h3 {
+        font-size: 20px;
+    }
+
+    .track-result {
+        font-size: 14px;
+    }
+
+    .track-features li {
+        font-size: 14px;
+    }
+
+    .case-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-header .price {
+        font-size: 34px;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-column a {
+        margin-bottom: 10px;
+    }
+
+    .floating-whatsapp.expanded .whatsapp-button {
+        height: 52px;
+        padding: 0 14px;
+    }
+
+    .floating-whatsapp.expanded .call-button-text {
+        display: inline-block;
+    }
+}
+
+/* ультраузкие экраны */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .btn,
+    .btn-large {
+        font-size: 15px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .floating-whatsapp.expanded .call-button-text {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
