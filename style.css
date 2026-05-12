@@ -130,6 +130,156 @@ body {
     transform: translateX(0);
 }
 
+.floating-whatsapp.expanded .whatsapp-button {
+    width: auto;
+    min-width: 220px;
+    height: 60px;
+    padding: 0 22px;
+    border-radius: 22px;
+    gap: 10px;
+    transition: all 0.45s ease;
+}
+
+.call-button-text {
+    display: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.floating-whatsapp.expanded .call-button-text {
+    display: inline-block;
+}
+
+.call-button {
+    background: var(--gradient-primary);
+}
+
+.call-button:hover {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.contact-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-modal.active {
+    display: flex;
+}
+
+.contact-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+.contact-modal-card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 460px);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-xl);
+}
+
+.contact-modal-card h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.contact-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.contact-modal-close:hover {
+    background: #E0F2FE;
+    color: var(--primary-blue);
+}
+
+.contact-modal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+}
+
+.contact-row span {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.contact-row a {
+    color: var(--primary-blue);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.faq-modal-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--gradient-primary);
+    color: var(--text-on-primary);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.faq-modal-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.faq-modal-arrow {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.pricing-actions .btn-primary {
+    width: 100%;
+}
+
+
 /* =============== HEADER =============== */
 header {
     position: sticky;
@@ -465,7 +615,13 @@ input:focus, select:focus, textarea:focus {
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
-
+/* Ограничение растягивания textarea */
+textarea {
+    resize: vertical;   /* можно растягивать только по вертикали */
+    min-height: 30px;  /* стартовая высота */
+    max-height: 300px;  /* максимальная высота */
+    overflow-y: auto;   /* появляется скролл если текста много */
+}
 .course-pills {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -673,7 +829,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .trust-icon img{
-    width: 150px;
+    weight: 150px;
     height: 150px;
     margin-bottom:15px;
 }
@@ -1124,6 +1280,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 25px;
+}
 }
 .cta-inline-frase{
     text-align:center;
@@ -1658,7 +1815,7 @@ footer {
 
 .case-image {
     position: relative;
-    height: 200px;
+    height: 320px;
     overflow: hidden;
 }
 
@@ -1858,7 +2015,7 @@ footer {
 }
 
 .faq-question {
-    padding: 24px;
+    padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2050,64 +2207,46 @@ footer {
     }
 }
 
-/* =============== FINAL RESPONSIVE POLISH =============== */
-*,
-*::before,
-*::after {
+@media (max-width: 480px) {
+    .contact-modal-card {
+        padding: 28px 20px;
+    }
+
+    .contact-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+/* =============== MOBILE ADAPTATION PATCH =============== */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
-img,
-svg,
-video {
+img, svg, video, canvas {
     max-width: 100%;
 }
 
-input,
-select,
-textarea,
-button {
+button, input, select, textarea {
     max-width: 100%;
 }
 
-input,
-select,
-textarea {
+header {
     width: 100%;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 120px;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-section {
-    scroll-margin-top: 86px;
-}
-
-.case-card,
-.track-card,
-.mentor-card,
-.pricing-card,
-.testimonial-card,
-.trust-item,
-.stat-card,
-.final-cta-card,
-.booking-banner {
-    min-width: 0;
 }
 
 .topnav.active {
     display: flex !important;
 }
 
-/* аккуратная сетка для средних экранов */
 @media (max-width: 1180px) {
     .wrap {
         padding-left: 24px;
         padding-right: 24px;
+    }
+
+    .hero-visual {
+        margin-left: -80px;
     }
 
     .topnav {
@@ -2115,39 +2254,38 @@ section {
     }
 
     .navlink {
-        padding: 9px 10px;
+        padding: 10px 10px;
         font-size: 14px;
-    }
-
-    .topnav .btn {
-        padding: 10px 14px;
-        font-size: 14px;
-    }
-
-    .hero-visual {
-        margin-left: 0;
-    }
-
-    .hero-image {
-        width: 100%;
-        margin-left: 0;
     }
 }
 
 @media (max-width: 1024px) {
-    .hero {
-        padding: 56px 0 64px;
+    section,
+    .hero,
+    .trust,
+    .results,
+    #tracks,
+    .process,
+    #mentors,
+    #testimonials,
+    #cases,
+    .pricing,
+    #faq,
+    #final-cta {
+        padding-top: 64px;
+        padding-bottom: 64px;
     }
 
     .hero .wrap {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 32px;
+        align-items: center;
     }
 
     .hero-content {
-        text-align: center;
         max-width: 760px;
         margin: 0 auto;
+        text-align: center;
     }
 
     .hero-badge {
@@ -2159,29 +2297,31 @@ section {
     }
 
     .hero-visual {
+        margin-left: 0;
         max-width: 620px;
         width: 100%;
-        margin: 0 auto;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin: 0;
     }
 
     .achievement-badge.corner {
         right: 0;
+        bottom: 0;
     }
 
     .trust-grid,
-    .stats-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
+    .stats-grid,
     .tracks-grid,
-    .cases-grid,
     .mentors-grid,
-    .pricing-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        max-width: 720px;
-        margin-left: auto;
-        margin-right: auto;
+    .testimonials-grid,
+    .cases-grid,
+    .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .pricing-card.featured,
@@ -2191,31 +2331,29 @@ section {
 
     .final-cta-card {
         grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    .cta-content {
-        text-align: center;
-    }
-
-    .cta-features {
-        align-items: center;
     }
 }
 
-/* полноценная мобильная версия */
 @media (max-width: 768px) {
-    body {
-        font-size: 15px;
-    }
-
     .wrap {
         padding-left: 16px;
         padding-right: 16px;
     }
 
-    header {
-        position: sticky;
+    section,
+    .hero,
+    .trust,
+    .results,
+    #tracks,
+    .process,
+    #mentors,
+    #testimonials,
+    #cases,
+    .pricing,
+    #faq,
+    #final-cta {
+        padding-top: 48px;
+        padding-bottom: 48px;
     }
 
     .nav {
@@ -2224,11 +2362,6 @@ section {
 
     .logo {
         font-size: 21px;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
-        z-index: 130;
     }
 
     .topnav {
@@ -2241,7 +2374,7 @@ section {
         align-items: stretch;
         gap: 8px;
         padding: 14px;
-        background: rgba(255, 255, 255, 0.98);
+        background: var(--bg-surface);
         border: 1px solid var(--border-light);
         border-radius: 0 0 var(--radius-lg) var(--radius-lg);
         box-shadow: var(--shadow-lg);
@@ -2254,12 +2387,16 @@ section {
         text-align: center;
     }
 
+    .mobile-menu-btn {
+        display: flex;
+    }
+
     .hero {
-        padding: 36px 0 44px;
+        padding-top: 44px;
     }
 
     .hero-title {
-        font-size: clamp(30px, 8vw, 42px);
+        font-size: clamp(30px, 9vw, 40px);
         line-height: 1.08;
     }
 
@@ -2269,54 +2406,64 @@ section {
     }
 
     .hero-badge {
-        font-size: 13px;
-        padding: 8px 12px;
-        margin-bottom: 18px;
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+        border-radius: var(--radius-md);
     }
 
     .hero-stats {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 10px;
-        max-width: 330px;
-        margin: 0 auto 22px;
+        margin-bottom: 10px;
     }
 
     .hero-stats .stat {
+        padding: 10px 8px;
         background: var(--bg-surface);
         border: 1px solid var(--border-light);
         border-radius: var(--radius-md);
-        padding: 10px 12px;
         box-shadow: var(--shadow-sm);
     }
 
-    .hero-image-wrapper {
-        max-width: 420px;
-        margin: 0 auto;
+    .hero-stats .stat-number {
+        font-size: 24px;
+        padding: 4px 0;
+        margin-bottom: 2px;
+    }
+
+    .hero-stats .stat-label {
+        font-size: 12px;
+        line-height: 1.25;
+    }
+
+    .hero-visual {
+        max-width: 440px;
     }
 
     .achievement-badge.corner {
-        width: 96px;
-        height: 96px;
+        width: 88px;
+        height: 88px;
         right: 0;
         bottom: 0;
     }
 
     .achievement-badge.corner .number {
-        font-size: 24px;
-        margin-left: 18px;
-        margin-top: 18px;
+        font-size: 22px;
+        margin-left: 16px;
+        margin-top: 16px;
     }
 
     .achievement-badge.corner .label {
         font-size: 12px;
-        margin-left: 12px;
+        margin-left: 10px;
     }
 
     .booking-banner {
         width: calc(100% - 32px);
         padding: 18px;
-        margin: 20px auto 0;
+        margin-top: 22px;
         border-radius: var(--radius-lg);
     }
 
@@ -2325,95 +2472,79 @@ section {
         flex-direction: column;
         align-items: stretch;
         gap: 12px;
-        text-align: left;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
     }
 
     .urgency-badge {
         justify-content: center;
-        font-size: 14px;
         text-align: center;
-        border-radius: 16px;
+        font-size: 14px;
+        border-radius: var(--radius-md);
     }
 
     .urgency-timer {
-        justify-content: space-between;
-        text-align: left;
-        gap: 10px;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
     }
 
     .urgency-timer span {
         font-size: 14px;
-        margin: 0;
+        margin-bottom: 0;
     }
 
     .timer {
-        margin-left: 0;
         font-size: 22px;
+        margin-left: 8px;
     }
 
     .form-row,
     .form-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
     }
 
-    input,
-    select,
-    textarea {
+    input, select, textarea {
+        min-height: 48px;
         font-size: 16px;
-        padding: 13px 14px;
     }
 
     .course-pills-horizontal {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
     }
 
     .course-pills-horizontal .course-pill {
         min-width: 0;
-        justify-content: center;
+        width: 100%;
         font-size: 14px;
         padding: 10px 8px;
+        justify-content: center;
     }
 
     .course-pills-icon {
-        width: 26px;
-        height: 26px;
-        flex: 0 0 auto;
+        max-width: 24px;
+        flex-shrink: 0;
     }
 
     .form-footer {
         align-items: stretch;
-        gap: 12px;
-    }
-
-    .checkbox {
-        align-items: flex-start;
-        line-height: 1.35;
+        text-align: left;
     }
 
     .guarantee {
-        text-align: left;
+        font-size: 13px;
         line-height: 1.35;
     }
 
-    .btn,
-    .btn-large {
-        width: 100%;
-        padding: 14px 18px;
-        font-size: 16px;
-    }
-
     .after-hero-cta {
-        padding: 28px 0;
+        padding: 24px 0;
         margin-top: 0;
     }
 
     .cta-inline {
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
         text-align: center;
     }
 
@@ -2424,7 +2555,7 @@ section {
 
     .cta-inline p {
         width: 100%;
-        max-width: 360px;
+        max-width: 420px;
         font-size: 16px;
     }
 
@@ -2435,24 +2566,16 @@ section {
 
     .section-sub {
         font-size: 16px;
-        margin-bottom: 32px;
-    }
-
-    .trust,
-    .results,
-    #tracks,
-    .process,
-    #mentors,
-    #testimonials,
-    #cases,
-    .pricing,
-    #faq,
-    #final-cta {
-        padding: 52px 0;
+        margin-bottom: 36px;
     }
 
     .trust-grid,
-    .stats-grid {
+    .stats-grid,
+    .tracks-grid,
+    .mentors-grid,
+    .testimonials-grid,
+    .cases-grid,
+    .pricing-grid {
         grid-template-columns: 1fr;
         gap: 18px;
         margin-top: 32px;
@@ -2462,15 +2585,9 @@ section {
     .stat-card,
     .track-card,
     .testimonial-card,
-    .pricing-card,
     .mentor-card,
-    .case-card {
-        border-radius: var(--radius-lg);
-    }
-
-    .trust-item,
-    .stat-card {
-        padding: 24px 18px;
+    .pricing-card {
+        padding: 22px 18px;
     }
 
     .trust-icon img {
@@ -2478,17 +2595,13 @@ section {
         height: 110px;
     }
 
-    .track-card {
-        padding: 22px 18px;
-    }
-
     .track-header {
-        display: grid;
-        grid-template-columns: 56px 1fr;
-        gap: 12px;
-        justify-content: initial;
-        align-items: center;
         min-height: auto;
+        display: grid;
+        grid-template-columns: 54px 1fr;
+        gap: 12px;
+        align-items: center;
+        justify-content: initial;
     }
 
     .track-icon {
@@ -2511,23 +2624,25 @@ section {
     .track-features li {
         align-items: flex-start;
         gap: 8px;
+        font-size: 15px;
+        line-height: 1.35;
     }
 
     .track-features li img {
         width: 34px;
         height: 34px;
         padding-right: 0;
-        flex: 0 0 auto;
+        flex-shrink: 0;
     }
 
     .track-actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
+        text-align: center;
     }
 
-    .track-actions .price {
-        text-align: center;
+    .track-actions .btn {
+        width: 100%;
     }
 
     .process-timeline {
@@ -2543,36 +2658,34 @@ section {
     }
 
     .process-step {
-        width: 44px;
-        height: 44px;
-        font-size: 17px;
+        width: 46px;
+        height: 46px;
         margin-right: 14px;
+        font-size: 17px;
     }
 
     .mentor-card {
-        padding: 24px 18px;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .mentor-photo img {
-        width: 132px;
-        height: 132px;
-    }
-
     .mentor-stats {
         flex-direction: column;
-        gap: 8px;
-        margin-bottom: 18px;
+        gap: 10px;
     }
 
-    .testimonial-card {
-        padding: 24px 18px;
+    .case-image {
+        height: 230px;
+    }
+
+    .case-stats {
+        justify-content: center;
     }
 
     .testimonial-author {
         align-items: flex-start;
+        gap: 12px;
         flex-wrap: wrap;
     }
 
@@ -2581,118 +2694,42 @@ section {
         margin-bottom: 0;
     }
 
-    .case-image {
-        height: auto;
-        aspect-ratio: 16 / 9;
-    }
-
-    .case-content {
-        padding: 20px 18px;
-    }
-
-    .case-stats {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-
-    .case-stat {
-        background: var(--bg-card);
-        border-radius: var(--radius-md);
-        padding: 10px;
-    }
-
-    .pricing-card {
-        padding: 28px 20px;
-    }
-
-    .pricing-header .price {
-        font-size: 38px;
-    }
-
-    .faq-grid {
-        margin-top: 32px;
-    }
-
-    .faq-question {
-        padding: 18px 16px;
-        gap: 14px;
-    }
-
-    .faq-question h3 {
-        font-size: 16px;
-        line-height: 1.35;
-    }
-
-    .faq-answer.active {
-        padding: 0 16px 18px;
-    }
-
     .final-cta-card {
         padding: 28px 18px;
-        border-radius: var(--radius-lg);
-        gap: 24px;
+        gap: 28px;
     }
 
     .cta-content h2 {
         font-size: 28px;
     }
 
-    .cta-content p {
-        font-size: 16px;
-    }
-
-    .cta-features {
-        align-items: stretch;
-    }
-
-    .feature {
-        background: var(--bg-card);
-        border: 1px solid var(--border-light);
-        border-radius: var(--radius-md);
-        padding: 10px 12px;
-    }
-
     .footer-content {
         grid-template-columns: 1fr;
         gap: 28px;
-        padding: 38px 0 28px;
-        text-align: center;
-    }
-
-    .footer-contacts {
-        align-items: center;
+        padding-top: 36px;
     }
 
     .footer-links {
-        grid-template-columns: 1fr 1fr;
-        gap: 22px;
-        text-align: left;
+        grid-template-columns: 1fr;
     }
 
-    .footer-meta {
-        flex-direction: column;
-        text-align: center;
-    }
-
+    .footer-meta,
     .footer-legals {
         flex-direction: column;
+        text-align: center;
         gap: 10px;
     }
 
     .floating-whatsapp {
         right: 16px;
         bottom: 16px;
-        max-width: calc(100vw - 32px);
     }
 
     .floating-whatsapp.expanded .whatsapp-button {
         min-width: 0;
-        width: auto;
         max-width: calc(100vw - 32px);
         height: 54px;
         padding: 0 16px;
-        border-radius: 18px;
     }
 
     .whatsapp-button {
@@ -2703,57 +2740,37 @@ section {
     .call-button-text {
         font-size: 14px;
     }
-
-    .whatsapp-tooltip {
-        display: none;
-    }
-
-    .contact-modal {
-        padding: 14px;
-    }
-
-    .contact-modal-card {
-        padding: 28px 18px 20px;
-        border-radius: var(--radius-lg);
-    }
-
-    .contact-modal-card h3 {
-        font-size: 24px;
-        padding-right: 40px;
-    }
-
-    .contact-row {
-        flex-direction: column;
-        gap: 4px;
-        padding: 12px 14px;
-    }
 }
 
-/* маленькие телефоны */
 @media (max-width: 480px) {
     .wrap {
         padding-left: 14px;
         padding-right: 14px;
     }
 
-    .hero {
-        padding-top: 28px;
+    .btn,
+    .btn-large {
+        width: 100%;
+        min-height: 48px;
+        padding: 13px 16px;
+        font-size: 15px;
+        line-height: 1.25;
     }
 
     .hero-title {
-        font-size: 29px;
+        font-size: 30px;
     }
 
     .hero-subtitle {
         font-size: 16px;
     }
 
-    .hero-image-wrapper {
-        max-width: 340px;
+    .hero-stats {
+        grid-template-columns: 1fr;
     }
 
     .booking-banner {
-        width: calc(100% - 24px);
+        width: calc(100% - 20px);
         padding: 16px;
     }
 
@@ -2763,78 +2780,57 @@ section {
 
     .course-pills-horizontal .course-pill {
         font-size: 15px;
-        min-height: 44px;
+        justify-content: flex-start;
+        text-align: left;
     }
 
-    .section-title {
-        font-size: 25px;
+    .course-pills-horizontal .course-pill span {
+        text-align: left;
     }
 
-    .track-header {
-        grid-template-columns: 48px 1fr;
-    }
-
-    .track-icon img,
-    .track-icon .blender-icon {
-        width: 46px;
-        height: 46px;
-    }
-
-    .track-header h3 {
-        font-size: 20px;
-    }
-
-    .track-result {
+    .track-result,
+    .track-duration {
         font-size: 14px;
     }
 
-    .track-features li {
-        font-size: 14px;
-    }
-
-    .case-stats {
-        grid-template-columns: 1fr;
+    .price {
+        font-size: 18px;
     }
 
     .pricing-header .price {
-        font-size: 34px;
+        font-size: 38px;
     }
 
-    .footer-links {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .case-image {
+        height: 200px;
     }
 
-    .footer-column a {
-        margin-bottom: 10px;
+    .case-stats {
+        flex-direction: column;
+        gap: 12px;
     }
 
-    .floating-whatsapp.expanded .whatsapp-button {
-        height: 52px;
-        padding: 0 14px;
+    .contact-modal {
+        padding: 12px;
     }
 
-    .floating-whatsapp.expanded .call-button-text {
-        display: inline-block;
-    }
-}
-
-/* ультраузкие экраны */
-@media (max-width: 360px) {
-    .hero-title {
-        font-size: 26px;
+    .contact-modal-card {
+        padding: 26px 16px 18px;
+        border-radius: var(--radius-lg);
     }
 
-    .btn,
-    .btn-large {
-        font-size: 15px;
-        padding-left: 12px;
-        padding-right: 12px;
+    .contact-modal-card h3 {
+        font-size: 24px;
     }
 
-    .floating-whatsapp.expanded .call-button-text {
-        max-width: 150px;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    .contact-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .notification {
+        left: 12px !important;
+        right: 12px !important;
+        max-width: none !important;
     }
 }
