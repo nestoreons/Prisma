@@ -64,8 +64,8 @@ button, input, select, textarea { font: inherit; }
 header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-light); }
 .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 /* LOGO */
-.logo {display: flex;align-items: center;gap: 12px;text-decoration: none;}
-.logo-image {width: 48px;height: 48px;object-fit: contain;flex-shrink: 0;}
+.logo {display: flex;align-items: center;gap: 0px;text-decoration: none;}
+.logo-image {width: 70px;height: 70px;object-fit: contain;flex-shrink: 0;}
 .logo-text {font-size: 28px;font-weight: 800;color: #1E293B;line-height: 1;letter-spacing: -0.5px;}
 .logo-accent {background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
 /* MOBILE */
