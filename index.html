@@ -69,7 +69,7 @@
                     Бесплатный урок
                 </button>
             </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -124,7 +124,7 @@
             </div>
               <!-- Booking Banner -->
 <!-- Booking Banner -->
-<div class="booking-banner">
+<div class="booking-banner" id="booking-form">
     <div class="booking-top-row">
         <div class="urgency-badge">
             <span class="fire-icon">🔥</span>
@@ -166,8 +166,6 @@
                 </button>
             </div>
         </div>
-
-        <input type="hidden" name="course" id="selectedCourse" value="">
 
         <button class="btn btn-primary btn-large btn-block">
             🚀 Получить бесплатную консультацию
@@ -445,7 +443,7 @@
                         </div>
                         <div class="track-actions">
                             <div class="price">от 1 200₽/занятие</div>
-                            <button class="btn btn-primary" onclick="scrollToForm('Blender')">
+                            <button class="btn btn-primary" onclick="scrollToForm('Figma')">
                                 Начать обучение →
                             </button>
                         </div>
