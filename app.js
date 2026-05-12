@@ -81,42 +81,12 @@ function startUrgencyTimer() {
     updateTimer();
 }
 
-// Contact Modal
-function openContactModal() {
-    const modal = document.getElementById('contactModal');
-    if (!modal) return;
-
-    modal.classList.add('active');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeContactModal() {
-    const modal = document.getElementById('contactModal');
-    if (!modal) return;
-
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-}
-
-function goToFaqFromModal() {
-    closeContactModal();
-    smoothTo('#faq');
-}
-
-function smoothTo(selector) {
-    const targetSelector = selector === '#form' ? '#final-cta' : selector;
-    const target = document.querySelector(targetSelector);
-
-    if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-
-// Compatibility: old calls now open the contact modal instead of WhatsApp
+// WhatsApp Integration
 function openWhatsApp() {
-    openContactModal();
+    const phone = '79123456789'; // Replace with your number
+    const message = 'Здравствуйте! Хочу записать ребёнка на IT-курсы в PrismaClub. Можете рассказать подробнее?';
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
 }
 
 // Form Submission
@@ -213,7 +183,7 @@ function showNotification(message, type = 'info') {
 }
 
 // Scroll to Form with Course Pre-selection
-function scrollToForm(course = null) {
+function scrollToForm(course) {
     const formSection = document.getElementById('final-cta');
     if (formSection) {
         // Pre-select course
@@ -236,44 +206,19 @@ function initMobileMenu() {
     
     if (menuBtn && topnav) {
         menuBtn.addEventListener('click', () => {
-            topnav.classList.toggle('active');
-            menuBtn.classList.toggle('active');
+            const isActive = topnav.classList.toggle('active');
+            menuBtn.classList.toggle('active', isActive);
+            menuBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        });
+
+        topnav.querySelectorAll('a, button').forEach(item => {
+            item.addEventListener('click', () => {
+                topnav.classList.remove('active');
+                menuBtn.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
         });
     }
-}
-// FAQ Accordion
-function initFAQAccordion() {
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        const toggle = item.querySelector('.faq-toggle');
-
-        if (!question || !answer) return;
-
-        question.addEventListener('click', () => {
-            const isActive = answer.classList.contains('active');
-
-            document.querySelectorAll('.faq-answer').forEach(el => {
-                el.classList.remove('active');
-            });
-
-            document.querySelectorAll('.faq-toggle').forEach(el => {
-                el.textContent = '+';
-                el.style.transform = 'rotate(0deg)';
-            });
-
-            if (!isActive) {
-                answer.classList.add('active');
-
-                if (toggle) {
-                    toggle.textContent = '−';
-                    toggle.style.transform = 'rotate(180deg)';
-                }
-            }
-        });
-    });
 }
 
 // Intersection Observer for Animations
@@ -305,39 +250,6 @@ function initScrollAnimations() {
         observer.observe(el);
     });
 }
-// Simple notification sound
-function playSimpleSound() {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return;
-
-    const audioContext = new AudioContext();
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
-
-    oscillator.type = 'sine';
-    oscillator.frequency.setValueAtTime(720, audioContext.currentTime);
-
-    gainNode.gain.setValueAtTime(0.0001, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.08, audioContext.currentTime + 0.02);
-    gainNode.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.25);
-
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-
-    oscillator.start();
-    oscillator.stop(audioContext.currentTime + 0.25);
-}
-
-// Floating call button animation
-function initFloatingCallAttention() {
-    const floatingButton = document.querySelector('.floating-whatsapp');
-    if (!floatingButton) return;
-
-    setTimeout(() => {
-        floatingButton.classList.add('expanded');
-        playSimpleSound();
-    }, 25000);
-}
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
@@ -345,20 +257,14 @@ document.addEventListener('DOMContentLoaded', function() {
     startUrgencyTimer();
     initMobileMenu();
     initScrollAnimations();
-    initFAQAccordion();
-    initFloatingCallAttention();
-
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeContactModal();
-        }
-    });
     
+    // Form submission handlers
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', handleFormSubmit);
     });
-
+    
+    // Add CSS for animations
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
@@ -397,10 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
 // Export functions for global access
 window.openWhatsApp = openWhatsApp;
-window.openContactModal = openContactModal;
-window.closeContactModal = closeContactModal;
-window.goToFaqFromModal = goToFaqFromModal;
-window.smoothTo = smoothTo;
 window.scrollToForm = scrollToForm;
