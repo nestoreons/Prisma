@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="PrismaClub - IT-курсы для подростков 12-17 лет. Unity, Python, Blender, Figma. Первый проект за 6-8 недель. 95% учеников заканчивают с портфолио." />
+    <title>PrismaClub — IT-курсы для подростков 12-17 лет | Первый проект за 6-8 недель</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-whatsapp">
+        <button class="whatsapp-button call-button" onclick="openContactModal()" aria-label="Открыть контакты">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+            </svg>
+            <span class="call-button-text">Остались вопросы?</span>
+        </button>
+        <div class="whatsapp-tooltip">Контакты для связи</div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+        <div class="contact-modal-backdrop" onclick="closeContactModal()"></div>
+        <div class="contact-modal-card" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+            <button class="contact-modal-close" type="button" onclick="closeContactModal()" aria-label="Закрыть">×</button>
+            <h3 id="contactModalTitle">Связаться с нами</h3>
+            <div class="contact-modal-list">
+                <div class="contact-row"><span>Телефон:</span><a href="tel:+79131244284">+7 913 124-42-84</a></div>
+                <div class="contact-row"><span>Электронная почта:</span><a href="mailto:hello@prismaclub.ru">hello@prismaclub.ru</a></div>
+                <div class="contact-row"><span>Telegram:</span><a href="https://t.me/Nestor.eons" target="_blank" rel="noopener">@Nestor.eons</a></div>
+                <div class="contact-row"><span>WhatsApp:</span><a href="https://wa.me/79131244284" target="_blank" rel="noopener">8 913 124-42-84</a></div>
+            </div>
+            <button class="faq-modal-button" type="button" onclick="goToFaqFromModal()">
+                <span>Часто задаваемые вопросы</span>
+                <span class="faq-modal-arrow">⌄</span>
+            </button>
+        </div>
+    </div>
+
+    <header>
+        <div class="wrap nav">
+            <div class="brand">
+                <a class="logo" href="#hero">
+                    <span class="logo-icon"></span>
+                    PrismaClub
+                </a>
+            </div>
+            <nav class="topnav">
+                <a class="navlink active" href="#hero">Главная</a>
+                <a class="navlink" href="#results">Результаты</a>
+                <a class="navlink" href="#tracks">Направления</a>
+                <a class="navlink" href="#mentors">Наставники</a>
+                <a class="navlink" href="#testimonials">Отзывы</a>
+                <a class="navlink" href="#pricing">Цены</a>
+                <a class="navlink" href="#faq">FAQ</a>
+                <button class="btn btn-primary" onclick="scrollToForm()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="margin-right: 8px;">
+                        <path d="M13.6 11.2c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1-.2.2-.5.6-.6.8-.1.2-.2.2-.4.1-.2-.1-1-.3-1.9-1.1-.7-.6-1.2-1.4-1.4-1.7-.1-.3 0-.4.1-.5.1-.1.3-.3.4-.4.1-.2.2-.2.3-.4.1-.2 0-.3-.1-.4-.1-.1-.5-1.2-.7-1.8-.2-.5-.4-.5-.5-.5-.1 0-.3 0-.4 0-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.4 3.8 3.4.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/>
+                    </svg>
+                    Бесплатный урок
+                </button>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="hero">
+            <div class="wrap">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🎯</span>
+                        92% учеников заканчивают с готовым проектом
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Первый IT-проект вашего ребёнка 
+                        <span class="highlight">за 6–8 недель</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Unity, Python, Blender или Figma с нуля. Вместо скучной теории — реальные проекты, которые попадают в портфолио.
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">12-17</div>
+                            <div class="stat-label">лет</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">1-2</div>
+                            <div class="stat-label">раза в неделю</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">6-8</div>
+                            <div class="stat-label">недель до результата</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="images/student-coding.png" alt="Подросток создаёт игру в Unity" class="hero-image">
+                            <div class="achievement-badge corner">
+                                <div class="number">150+</div>
+                                <div class="label">учеников</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+              <!-- Booking Banner -->
+<!-- Booking Banner -->
+<div class="booking-banner">
+    <div class="booking-top-row">
+        <div class="urgency-badge">
+            <span class="fire-icon">🔥</span>
+            Осталось 3 места на этой неделе
+        </div>
+        <div class="urgency-timer">
+            <span>До конца записи:</span>
+            <div class="timer" id="urgencyTimer">02:15:47</div>
+        </div>
+    </div>
+
+    <div class="booking-form-grid">
+        <div class="form-row">
+            <input type="text" placeholder="Имя ребёнка" required>
+            <input type="tel" placeholder="Ваш телефон" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Выберите направление:</label>
+            <div class="course-pills-horizontal">
+                <button type="button" class="course-pill" data-course="Unity">
+                    <img src = "images/Unity_Icon.png" class = "course-pills-icon"/>
+                    <span class = "">Unity</span> 
+                </button>
+                 <button type="button" class="course-pill" data-course="Unity">
+                    <img src = "images/Python_Icon.png" class = "course-pills-icon"/>
+                    <span class = "">Python</span> 
+                </button>
+                 <button type="button" class="course-pill" data-course="Unity">
+                    <img src = "images/Blender_Icon.png" class = "course-pills-icon"/>
+                    <span class = "">Blender</span> 
+                </button>
+                 <button type="button" class="course-pill" data-course="Unity">
+                    <img src = "images/Figma_Icon.png" class = "course-pills-icon"/>
+                    <span class = "">Figma</span> 
+                </button>
+                 <button type="button" class="course-pill" data-course="Unity">
+                    <span class = "">Не определились</span> 
+                </button>
+            </div>
+        </div>
+
+        <button class="btn btn-primary btn-large btn-block">
+            🚀 Получить бесплатную консультацию
+        </button>
+    </div>
+    
+    <div class="form-footer">
+        <label class="checkbox">
+            <input type="checkbox" name="agreement" required>
+            <span class="checkmark"></span>
+            Согласен с политикой конфиденциальности
+        </label>
+        <div class="guarantee">
+            ✅ Первый урок бесплатно • Возврат денег при отказе
+        </div>
+    </div>
+</div>
+        </section>
+        <!-- CTA после формы -->
+<section class="after-hero-cta">
+    <div class="wrap">
+        <div class="cta-inline">
+            <img src = "images/Free_Icon.png"/>
+            <h3>Бесплатный пробный урок <br>
+        <span class ="cta-inline-frase">УЖЕ ЗАВТРА!</span>
+        </h3>
+      <p>Познакомим с наставником и подберём подходящее направление.</p>
+      <button class="btn btn-primary" onclick="scrollToForm('tracks')">
+        Смотреть курсы →
+      </button>
+    </div>
+  </div>
+</section>
+
+
+                <section class="trust" id="trust">
+            <div class="wrap">
+                <h2 class="section-title">Нам доверяют родители</h2>
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <img src = "images/Teacher_Icon.png"/>
+                        </div>
+                        <div class="trust-content">
+                            <h3>Лучшие наставники</h3>
+                            <p>Все преподаватели — практикующие специалисты с опытом работы от 3 лет</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                         <div class="trust-icon">
+                            <img src = "images/Guarantee_Icon.png"/>
+                        </div>
+                        <div class="trust-content">
+                            <h3>Гарантия результата</h3>
+                            <p>С первых уроков ребёнок получает реальные знания в IT-сфере, вне зависимости от начальных навыков.</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                         <div class="trust-icon">
+                            <img src = "images/Target_Icon.png"/>
+                        </div>
+                        <div class="trust-content">
+                            <h3>Индивидуальный подход</h3>
+                            <p>Программа строится под интересы и уровень ученика — от основ до первых проектов.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS SECTION -->
+        <section class="results" id="results">
+            <div class="wrap">
+                <h2 class="section-title">
+                    <span class="highlight">9 из 10 учеников</span> продолжают развиваться в IT после окончания курса
+                </h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <img src = "images/White_Sheet-Icon.png"/>
+                        </div>
+                        <div class="stat-number" data-count="100">100%</div>
+                        <div class="stat-label">выпускников завершают курс с проектом</div>
+                    </div>
+                    <div class="stat-card">
+                         <div class="stat-icon">
+                            <img src = "images/Folder_Icon.png"/>
+                        </div>
+                        <div class="stat-number" data-count="2">2–3</div>
+                        <div class="stat-label">проекта уровеня Junior+ в портфолио</div>
+                    </div>
+                    <div class="stat-card">
+                         <div class="stat-icon">
+                            <img src = "images/Child_Recomendation_Icon.png"/>
+                        </div>
+                        <div class="stat-number" data-count="150">150+</div>
+                        <div class="stat-label">учеников рекомендуют PrismaClub друзьям</div>
+                    </div>
+                    <div class="stat-card">
+                         <div class="stat-icon">
+                            <img src = "images/Navigation_Curse_Icon.png"/>
+                        </div>
+                        <div class="stat-number" data-count="4">4–6</div>
+                        <div class="stat-label">направлений после прохождения курса</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRACKS SECTION -->
+        <section id="tracks">
+            <div class="wrap">
+                <h2 class="section-title">Выберите направление для старта в IT</h2>
+                <p class="section-sub">Практика с первого занятия. Результат — через 6–8 недель</p>
+                
+                <div class="tracks-grid">
+                    <!-- Unity Card -->
+                    <div class="track-card">
+                        <div class="track-header">
+                            <div class="track-icon">
+                                <img src = "images/Unity_Icon.png"/>
+                            </div>
+                            <h3>Создание игр в движке Unity</h3>
+                        </div>
+                        <div class="track-content">
+                            <div class="track-result">
+                                <strong>Результат:</strong> Собственный 3D-платформер с 3-4 уровнями
+                            </div>
+                            <ul class="track-features">
+                                <li>
+                                    <img src ="images/Unity_Csharp_Icon.png"/>
+                                    <strong>C# программирование: </strong> Логика игрового мира
+                                </li>
+                                <li>
+                                    <img src ="images/Unity_Animation_Icon.png"/>
+                                    <strong>Графика и анимации: </strong> Оживление персонажей и объектов
+                                </li>
+                                <li>
+                                    <img src ="images/Unity_Build_Icon.png"/>
+                                    <strong>Публикация: </strong> Сборка под Windows и Android
+                                </li>
+                                <li>
+                                    <img src ="images/Unity_Design_Icon.png"/>
+                                    <strong>Основы геймдизайна: </strong> Создание увлекательных механик
+                                </li>
+                            </ul>
+                            <div class="track-duration">
+                                <strong>6–8 недель</strong> • 1–2 раза в неделю
+                            </div>
+                        </div>
+                        <div class="track-actions">
+                            <div class="price">от 1 200₽/занятие</div>
+                            <button class="btn btn-primary" onclick="scrollToForm('Unity')">
+                                Начать обучение →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Python Card -->
+                    <div class="track-card">
+                        <div class="track-header">
+                            <div class="track-icon">
+                                <img src = "images/Python_Icon.png"/>
+                            </div>
+                            <h3>Программирование на Python</h3>
+                        </div>
+                        <div class="track-content">
+                            <div class="track-result">
+                                <strong>Результат:</strong> 3 рабочих приложения + бот
+                            </div>
+                            <ul class="track-features">
+                                <li>
+                                    <img src ="images/Python_Base_Icon.png"/>
+                                    <strong>Основы Python:</strong>  Базовые концепции программирования
+                                </li>
+                                <li>
+                                    <img src ="images/Python_Telegram_Icon.png"/>
+                                    <strong>Telegram-бот:</strong> Создание полезных скриптов в чатах
+                                </li>
+                                <li>
+                                    <img src ="images/Python_Data_Icon.png"/>
+                                    <strong>Работа с данными:</strong> Анализ и обработка
+                                </li>
+                                <li>
+                                    <img src ="images/Python_Web_Icon.png"/>
+                                    <strong>Веб-разработка:</strong> Cерверная работа сайтов
+                                </li>
+                            </ul>
+                            <div class="track-duration">
+                                <strong>8 недель</strong> • 1–2 раза в неделю
+                            </div>
+                        </div>
+                        <div class="track-actions">
+                            <div class="price">от 1 200₽/занятие</div>
+                            <button class="btn btn-primary" onclick="scrollToForm('Python')">
+                                Начать обучение →
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Blender Card -->
+                    <div class="track-card">
+                        <div class="track-header">
+                            <div class="track-icon">
+                                <img src = "images/Blender_Icon.png" class = "blender-icon"/>
+                            </div>
+                            <h3>3D-моделирование в Blender</h3>
+                        </div>
+                        <div class="track-content">
+                            <div class="track-result">
+                                <strong>Результат:</strong> 3D модели с освещением и материалами
+                            </div>
+                            <ul class="track-features">
+                                <li>
+                                    <img src ="images/Blender_3D_Object_Icon.png"/>
+                                    <strong>3D-Моделирование:</strong> От полигонов до скульптинга
+                                </li>
+                                <li>
+                                    <img src ="images/Blender_Texture_Icon.png"/> 
+                                    <strong>Текстурирование:</strong> Материалы и процедурные текстуры
+                                </li>
+                                <li>
+                                    <img src ="images/Blender_lighting_Icon.png"/> 
+                                    <strong>Освещение и Рендер:</strong> Настройка сцены, камеры, света
+                                </li>
+                                <li>
+                                    <img src ="images/Blender_Animation_Icon.png"/> 
+                                    <strong>Анимация:</strong> Физические симуляции и ключевая анимация
+                                </li>
+                            </ul>
+                            <div class="track-duration">
+                                <strong>6-8 недель</strong> • 1–2 раза в неделю
+                            </div>
+                        </div>
+                        <div class="track-actions">
+                            <div class="price">от 1 200₽/занятие</div>
+                            <button class="btn btn-primary" onclick="scrollToForm('Blender')">
+                                Начать обучение →
+                            </button>
+                        </div>
+                    </div>
+                     <!-- Figma Card -->
+                    <div class="track-card">
+                        <div class="track-header">
+                            <div class="track-icon">
+                                <img src = "images/Figma_Icon.png"/>
+                            </div>
+                            <h3>Дизайн интерфейсов в Figma</h3>
+                        </div>
+                        <div class="track-content">
+                            <div class="track-result">
+                                <strong>Результат:</strong> прототип мобильного приложения или сайта
+                            </div>
+                            <ul class="track-features">
+                                <li>
+                                    <img src ="images/Figma_Base_Icon.png"/>
+                                    <strong>Основы Figma:</strong>Изучение программы и теории дизайна
+                                </li>
+                                                                <li>
+                                    <img src ="images/Figma_Project.png"/> 
+                                    <strong>Проектирование экранов:</strong>Интерфейс сайта и приложения
+                                </li>
+                                <li>
+                                    <img src ="images/Figma_Component_Icon.png"/>
+                                    <strong>UI-Kit</strong>Создание компонентов и дизайн системы
+                                </li>
+                                <li>
+                                    <img src ="images/Figma_Animation_Icon.png"/>
+                                    <strong>Работа в Tilda:</strong>Создание анимации и прототипирование
+                                </li>
+                            </ul>
+                            <div class="track-duration">
+                                <strong>8 недель</strong> • 1–2 раза в неделю
+                            </div>
+                        </div>
+                        <div class="track-actions">
+                            <div class="price">от 1 200₽/занятие</div>
+                            <button class="btn btn-primary" onclick="scrollToForm('Blender')">
+                                Начать обучение →
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Добавьте остальные направления по аналогии -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS SECTION (ВОССТАНАВить до рабочег осостояния если нету стилей) -->
+        <section class="process" id="process">
+            <div class="wrap">
+                <h2 class="section-title">Как проходит обучение</h2>
+                <div class="process-timeline">
+                    <div class="process-item">
+                        <div class="process-step">1</div>
+                        <div class="process-content">
+                            <h3>Знакомство и диагностика</h3>
+                            <p>Бесплатное пробное занятие, где определяем уровень и интересы ребёнка</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-step">2</div>
+                        <div class="process-content">
+                            <h3>Составление плана</h3>
+                            <p>Разрабатываем индивидуальную программу обучения с учётом целей ученика</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-step">3</div>
+                        <div class="process-content">
+                            <h3>Регулярные занятия</h3>
+                            <p>1-2 раза в неделю по 50-60 минут с практикующим наставником</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-step">4</div>
+                        <div class="process-content">
+                            <h3>Поддержка между занятиями</h3>
+                            <p>Ответы на вопросы в чате, проверка домашних заданий, помощь с проектом</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-step">5</div>
+                        <div class="process-content">
+                            <h3>Защита проекта</h3>
+                            <p>Презентация готового проекта и получение сертификата об окончании</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- MENTORS SECTION -->
+        <section id="mentors">
+            <div class="wrap">
+                <h2 class="section-title">Наши опытные наставники</h2>
+                <p class="section-sub">Практикующие специалисты, которые доводят до результата</p>
+                <div class="mentors-grid">
+                    <article class="mentor-card">
+                        <div class="mentor-photo">
+                            <img src="images/Sergey_Photo.png" alt="Сергей - наставник по Unity" width="150" height="150">
+                            <div class="mentor-exp">6+ лет опыта</div>
+                        </div>
+                        <div class="mentor-info">
+                            <h3>Сергей Н.</h3>
+                            <div class="mentor-role">Unity Developer</div>
+                            <p class="mentor-bio">Разработал более 10 коммерческих проектов. Специализируется на геймдизайне и проектировании.</p>
+                            <div class="mentor-stats">
+                                <div class="stat">Сейчас обучается: 47 учеников</div>
+                                <div class="stat">94% учеников закончили курс</div>
+                            </div>
+                            <button class="btn ghost mentor-btn" data-mentor="alexey">
+                               Записаться на урок
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="mentor-card">
+                        <div class="mentor-photo">
+                            <img src="images/Marina_Photo.png" alt="Марина - наставник по Blender" width="150" height="150">
+                            <div class="mentor-exp">10+ лет опыта</div>
+                        </div>
+                        <div class="mentor-info">
+                            <h3>Марина Б.</h3>
+                            <div class="mentor-role">3D Artist</div>
+                            <p class="mentor-bio">Работала над рекламными роликами и архитектурной визуализацией. Любит сложные проекты.</p>
+                            <div class="mentor-stats">
+                                <div class="stat">Сейчас обучается: 38 учеников</div>
+                                <div class="stat">95% учеников закончили курс</div>
+                            </div>
+                            <button class="btn ghost mentor-btn" data-mentor="maria">
+                                Записаться на урок
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="mentor-card">
+                        <div class="mentor-photo">
+                            <img src="images/Yriy_Photo.png" alt="Юрий - наставник по Python" width="150" height="150">
+                            <div class="mentor-exp">3+ лет опыта</div>
+                        </div>
+                        <div class="mentor-info">
+                            <h3>Юрий А.</h3>
+                            <div class="mentor-role">Python Developer</div>
+                            <p class="mentor-bio">Разработал 7 проектов по автоматизации процессов с данными. Специализируется на Web-разработке</p>
+                            <div class="mentor-stats">
+                                <div class="stat">Сейчас обучается: 23 ученика</div>
+                                <div class="stat">91% учеников закончили курс</div>
+                            </div>
+                            <button class="btn ghost mentor-btn" data-mentor="dmitry">
+                                Записаться на урок
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="mentor-card">
+                        <div class="mentor-photo">
+                            <img src="images/Marina_Photo.png" alt="Марина - наставник по дизайну" width="150" height="150">
+                            <div class="mentor-exp">10+ лет опыта</div>
+                        </div>
+                        <div class="mentor-info">
+                            <h3>Марина Б.</h3>
+                            <div class="mentor-role">UI/UX Designer</div>
+                            <p class="mentor-bio">Дизайнер в продуктовой компании. Создаёт интерфейсы для мобильных приложений и сайтов.</p>
+                            <div class="mentor-stats">
+                                <div class="stat">Сейчас обучается: 31 ученик</div>
+                                <div class="stat">95% учеников закончили курс</div>
+                            </div>
+                            <button class="btn ghost mentor-btn" data-mentor="elena">
+                                Записаться на урок
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials">
+            <div class="wrap">
+                <h2 class="section-title">Отзывы родителей и учеников</h2>
+                <p class="section-sub">Реальные истории успеха наших студентов</p>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="images/parent-1.jpg" alt="Мама Петра">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Анна, мама Петра (14 лет)</div>
+                                <div class="author-course">Курс: Unity</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <div class="testimonial-content">
+                            
+                            <p>"Сын создал свою первую игру за 7 недель! Теперь сам изучает новые технологии. Спасибо наставникам за терпение и профессионализм!"</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="testimonial-card">
+                    <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="images/parent-2.jpg" alt="Папа Анны">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Сергей, папа Анны (15 лет)</div>
+                                <div class="author-course">Курс: Blender</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"Дочь всегда мечтала о 3D-графике. Благодаря курсу Blender создала первую сцену и теперь планирует связать карьеру с геймдевом!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ <!-- CASES SECTION -->
+        <section id="cases">
+            <div class="wrap">
+                <h2 class="section-title">Реальные проекты наших учеников</h2>
+                <p class="section-sub">Что создают подростки под руководством наших наставников</p>
+                <div class="cases-grid">
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="images/Fire_Game.jpg" alt="Игра Пламя не пройдёт" width="320" height="240">
+                            <div class="case-badge">Unity</div>
+                        </div>
+                        <div class="case-content">
+                            <h3>Пламя не пройдёт!</h3>
+                            <div class="case-author">Андрей, 13 лет</div>
+                            <p class="case-description">Стилизованная 3D-игра, которая обучает детей как вести себя при пожаре</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <strong>9 недель</strong>
+                                    <span>Разработки</span>
+                                </div>
+                                <div class="case-stat">
+                                    <strong>1500+</strong>
+                                    <span>строк кода</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="images/Python_tg.png" alt="Telegram бот" width="320" height="240">
+                            <div class="case-badge">Python</div>
+                        </div>
+                        <div class="case-content">
+                            <h3>Бот помощник</h3>
+                            <div class="case-author">Максим, 13 лет</div>
+                            <p class="case-description">Telegram-бот для учёбы: напоминает о дедлайнах, хранит расписание.</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <strong>6 недель</strong>
+                                    <span>Разработки</span>
+                                </div>
+                                <div class="case-stat">
+                                    <strong>800+</strong>
+                                    <span>пользователей</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="images/3D_Model.png" alt="3D сцена" width="320" height="240">
+                            <div class="case-badge">Blender</div>
+                        </div>
+                        <div class="case-content">
+                            <h3>Летающий островок</h3>
+                            <div class="case-author">Анна, 15 лет</div>
+                            <p class="case-description">3D-сцена острова с домиком и барашкем.</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <strong>4 недели</strong>
+                                    <span>Разработки</span>
+                                </div>
+                                <div class="case-stat">
+                                    <strong>8</strong>
+                                    <span>моделей</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="images/Figma_Water.png" alt="Прототип приложения" width="320" height="240">
+                            <div class="case-badge">Figma</div>
+                        </div>
+                        <div class="case-content">
+                            <h3>Трекер воды</h3>
+                            <div class="case-author">Иван, 16 лет</div>
+                            <p class="case-description">Прототип мобильного приложения для отслеживания количества выпитой воды.</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <strong>8 недель</strong>
+                                    <span>Разработки</span>
+                                </div>
+                                <div class="case-stat">
+                                    <strong>18</strong>
+                                    <span>экранов</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+         <!-- PRICING SECTION -->
+        <section class="pricing" id="pricing">
+            <div class="wrap">
+                <h2 class="section-title">Выберите комфортный формат обучения</h2>
+                <p class="section-sub">Оплата напрямую наставнику. Все чеки и документы</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Индивидуальные занятия</h3>
+                            <div class="price">6 000 ₽</div>
+                            <div class="price-sub">абонемент на 4 занятия*</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>✅ Персональная программа</li>
+                            <li>✅ Гибкое расписание</li>
+                            <li>✅ Максимум внимания</li>
+                            <li>✅ Ускоренный прогресс</li>
+                            <li>✅ Поддержка 24/7</li>
+                        </ul>
+                        <div class="pricing-actions">
+                            <div class="save">Экономия 20%</div>
+                            <button class="btn btn-primary btn-large" onclick="scrollToForm()">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">Самый популярный</div>
+                        <div class="pricing-header">
+                            <h3>Мини-группа 3-4 человека</h3>
+                            <div class="price">4 800 ₽</div>
+                            <div class="price-sub">абонемент на 4 занятия*</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>✅ Соревновательный дух</li>
+                            <li>✅ Работа в команде</li>
+                            <li>✅ Общение со сверстниками</li>
+                            <li>✅ Экономия 25%</li>
+                            <li>✅ Поддержка куратора</li>
+                        </ul>
+                        <div class="pricing-actions">
+                            <div class="save">Экономия 25%</div>
+                            <button class="btn btn-primary btn-large" onclick="scrollToForm()">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Пробный урок</h3>
+                            <div class="price">Бесплатно</div>
+                            <div class="price-sub">знакомство с направлением</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>✅ Знакомство с наставником</li>
+                            <li>✅ Оценка уровня</li>
+                            <li>✅ План обучения</li>
+                            <li>✅ Ответы на вопросы</li>
+                            <li>✅ Без обязательств</li>
+                        </ul>
+                        <div class="pricing-actions">
+                            <button class="btn btn-primary btn-large" onclick="scrollToForm()">
+                                Получить бесплатно
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq">
+            <div class="wrap">
+                <h2 class="section-title">Ответы на частые вопросы родителей</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>С какого возраста можно начинать?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Идеальный возраст — От 12 лет и старше. В этом возрасте дети уже могут концентрироваться на задачах 45-60 минут, понимают логику программирования. Младше 12 рекомендуем начать с основ логики и алгоритмов.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Нужны ли специальные знания для старта?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Нет! 80% наших учеников начинают с нуля. Главное — интерес к технологиям и готовность учиться. Наставник адаптирует программу под уровень ребёнка.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Какое оборудование нужно?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Достаточно обычного компьютера с Windows и стабильным интернетом. Для Unity желателен компьютер помощнее, но для начала подойдёт любой. Поможем с установкой программ.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Что если не понравится после первого занятия?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Первый урок всегда бесплатный. Если не подойдёт направление или наставник — поможем выбрать другое или вернём деньги за неиспользованные занятия.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Будет ли домашнее задание?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, но не больше 1-2 часов в неделю. Домашние задания — это практика на закрепление материала. Все задания проверяются наставником с обратной связью.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Выдаётся ли сертификат?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, после успешной защиты проекта выдаём сертификат об окончании курса с перечнем освоенных технологий. Это отлично дополняет портфолио.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FINAL CTA SECTION -->
+        <section id="final-cta">
+            <div class="wrap">
+                <div class="final-cta-card">
+                    <div class="cta-content">
+                        <h2>Готовы помочь вашему ребёнку <span class="highlight">создать первый IT-проект?</span></h2>
+                        <p>Оставьте заявку и получите бесплатную консультацию по выбору направления</p>
+                        
+                        <div class="cta-features">
+                            <div class="feature">✅ Бесплатный пробный урок</div>
+                            <div class="feature">✅ Подбор идеального направления</div>
+                            <div class="feature">✅ Знакомство с наставником</div>
+                        </div>
+                    </div>
+                    
+                    <form class="cta-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="finalForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <input type="text" name="child_name" placeholder="Ваше имя*" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Ваш телефон*" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email (необязательно)" required>
+                            </div>
+                            <div class="form-group">
+                                <select name="grade" required>
+                                    <option value="">Класс ребёнка</option>
+                                    <option value="5-6">5-6 класс</option>
+                                    <option value="7-8">7-8 класс</option>
+                                    <option value="9-10">9-10 класс</option>
+                                    <option value="11">Старше 18 лет</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="interests" placeholder="Расскажите об интересах ребёнка (необязательно)"></textarea>
+                        </div>
+
+                        <input type="hidden" name="course" id="finalSelectedCourse" value="">
+
+                        <div class="form-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="agreement" required>
+                                <span class="checkmark"></span>
+                                Согласен с политикой конфиденциальности
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-block">
+                            🚀 Получить бесплатную консультацию
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">🔮 PrismaClub</div>
+                    <p>IT-курсы для подростков 12-17 лет</p>
+                    <div class="footer-contacts">
+                        <a href="tel:+79131244284">📞 +7 913 124-42-84</a>
+                        <a href="mailto:hello@prismaclub.ru">✉️ hello@prismaclub.ru</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Направления</h4>
+                        <a href="#tracks">Unity разработка</a>
+                        <a href="#tracks">Python программирование</a>
+                        <a href="#tracks">3D в Blender</a>
+                        <a href="#tracks">Дизайн в Figma</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>О нас</h4>
+                        <a href="#mentors">Наставники</a>
+                        <a href="#testimonials">Отзывы</a>
+                        <a href="#pricing">Цены</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-meta">
+                    <span>© 2024 PrismaClub. Объединение самозанятых наставников.</span>
+                    <div class="footer-legals">
+                        <a href="#">Политика конфиденциальности</a>
+                        <a href="#">Договор-оферта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
