@@ -49,7 +49,7 @@
     <header>
         <div class="wrap nav">
             <div class="brand">
-                <!-- LOGO -->
+                    <!-- LOGO -->
                 <a class="logo" href="#hero">
                     <img src="images/prismaclub-logo.png" alt="PrismaClub Logo" class="logo-image">
                     <span class="logo-text">Prisma<span class="logo-accent">Club</span></span>
@@ -64,13 +64,13 @@
                 <a class="navlink" href="#pricing">Цены</a>
                 <a class="navlink" href="#faq">FAQ</a>
                 <button class="btn btn-primary" onclick="scrollToForm()">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="margin-right: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="margin-right: 0px;">
                         <path d="M13.6 11.2c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1-.2.2-.5.6-.6.8-.1.2-.2.2-.4.1-.2-.1-1-.3-1.9-1.1-.7-.6-1.2-1.4-1.4-1.7-.1-.3 0-.4.1-.5.1-.1.3-.3.4-.4.1-.2.2-.2.3-.4.1-.2 0-.3-.1-.4-.1-.1-.5-1.2-.7-1.8-.2-.5-.4-.5-.5-.5-.1 0-.3 0-.4 0-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.4 3.8 3.4.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/>
                     </svg>
                     Бесплатный урок
                 </button>
             </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню" aria-expanded="false">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -125,7 +125,7 @@
             </div>
               <!-- Booking Banner -->
 <!-- Booking Banner -->
-<div class="booking-banner" id="booking-form">
+<div class="booking-banner">
     <div class="booking-top-row">
         <div class="urgency-badge">
             <span class="fire-icon">🔥</span>
@@ -150,19 +150,19 @@
                     <img src = "images/Unity_Icon.png" class = "course-pills-icon"/>
                     <span class = "">Unity</span> 
                 </button>
-                 <button type="button" class="course-pill" data-course="Python">
+                 <button type="button" class="course-pill" data-course="Unity">
                     <img src = "images/Python_Icon.png" class = "course-pills-icon"/>
                     <span class = "">Python</span> 
                 </button>
-                 <button type="button" class="course-pill" data-course="Blender">
+                 <button type="button" class="course-pill" data-course="Unity">
                     <img src = "images/Blender_Icon.png" class = "course-pills-icon"/>
                     <span class = "">Blender</span> 
                 </button>
-                 <button type="button" class="course-pill" data-course="Figma">
+                 <button type="button" class="course-pill" data-course="Unity">
                     <img src = "images/Figma_Icon.png" class = "course-pills-icon"/>
                     <span class = "">Figma</span> 
                 </button>
-                 <button type="button" class="course-pill" data-course="Not sure">
+                 <button type="button" class="course-pill" data-course="Unity">
                     <span class = "">Не определились</span> 
                 </button>
             </div>
@@ -444,7 +444,7 @@
                         </div>
                         <div class="track-actions">
                             <div class="price">от 1 200₽/занятие</div>
-                            <button class="btn btn-primary" onclick="scrollToForm('Figma')">
+                            <button class="btn btn-primary" onclick="scrollToForm('Blender')">
                                 Начать обучение →
                             </button>
                         </div>
@@ -518,10 +518,11 @@
                                 <div class="stat">Сейчас обучается: 47 учеников</div>
                                 <div class="stat">94% учеников закончили курс</div>
                             </div>
-                            <button class="btn ghost mentor-btn" data-mentor="alexey">
-                               Записаться на урок
+                            <button class="btn btn-primary" onclick="scrollToForm('Unity')">
+                                Записаться на урок к Сергею →
                             </button>
                         </div>
+
                     </article>
 
                     <article class="mentor-card">
@@ -537,8 +538,8 @@
                                 <div class="stat">Сейчас обучается: 38 учеников</div>
                                 <div class="stat">95% учеников закончили курс</div>
                             </div>
-                            <button class="btn ghost mentor-btn" data-mentor="maria">
-                                Записаться на урок
+                            <button class="btn btn-primary" onclick="scrollToForm('Blender')">
+                                Записаться на урок к Марине →
                             </button>
                         </div>
                     </article>
@@ -546,18 +547,18 @@
                     <article class="mentor-card">
                         <div class="mentor-photo">
                             <img src="images/Yriy_Photo.png" alt="Юрий - наставник по Python" width="150" height="150">
-                            <div class="mentor-exp">3+ лет опыта</div>
+                            <div class="mentor-exp">4+ лет опыта</div>
                         </div>
                         <div class="mentor-info">
                             <h3>Юрий А.</h3>
                             <div class="mentor-role">Python Developer</div>
-                            <p class="mentor-bio">Разработал 7 проектов по автоматизации процессов с данными. Специализируется на Web-разработке</p>
+                            <p class="mentor-bio">Разработал 7 проектов по автоматизации процессов с данными. Специализируется на Data-разработке</p>
                             <div class="mentor-stats">
                                 <div class="stat">Сейчас обучается: 23 ученика</div>
-                                <div class="stat">91% учеников закончили курс</div>
+                                <div class="stat">90% учеников закончили курс</div>
                             </div>
-                            <button class="btn ghost mentor-btn" data-mentor="dmitry">
-                                Записаться на урок
+                            <button class="btn btn-primary" onclick="scrollToForm('Python')">
+                                Записаться на урок к Юрию →
                             </button>
                         </div>
                     </article>
@@ -575,8 +576,8 @@
                                 <div class="stat">Сейчас обучается: 31 ученик</div>
                                 <div class="stat">95% учеников закончили курс</div>
                             </div>
-                            <button class="btn ghost mentor-btn" data-mentor="elena">
-                                Записаться на урок
+                            <button class="btn btn-primary" onclick="scrollToForm('Figma')">
+                                Записаться на урок к Марине →
                             </button>
                         </div>
                     </article>
@@ -594,17 +595,17 @@
                     <div class="testimonial-card">
                         <div class="testimonial-author">
                             <div class="author-avatar">
-                                <img src="images/parent-1.jpg" alt="Мама Петра">
+                                <img src="images/parent-1.png" alt="Мама Петра">
                             </div>
                             <div class="author-info">
-                                <div class="author-name">Анна, мама Петра (14 лет)</div>
+                                <div class="author-name">Анна, мама Андрея (12 лет)</div>
                                 <div class="author-course">Курс: Unity</div>
                             </div>
                             <div class="stars">★★★★★</div>
                         </div>
                         <div class="testimonial-content">
                             
-                            <p>"Сын создал свою первую игру за 7 недель! Теперь сам изучает новые технологии. Спасибо наставникам за терпение и профессионализм!"</p>
+                            <p>"Сын создал такую красивую игру за 2 месяца! Я уверена у него всё получится! Сергею отдельное спасибо за столь чудесные занятия!"</p>
                         </div>
                         
                     </div>
@@ -612,16 +613,16 @@
                     <div class="testimonial-card">
                     <div class="testimonial-author">
                             <div class="author-avatar">
-                                <img src="images/parent-2.jpg" alt="Папа Анны">
+                                <img src="images/parent-2.png" alt="Папа Анны">
                             </div>
                             <div class="author-info">
-                                <div class="author-name">Сергей, папа Анны (15 лет)</div>
+                                <div class="author-name">Сергей, папа Анны (13 лет)</div>
                                 <div class="author-course">Курс: Blender</div>
                             </div>
                             <div class="stars">★★★★★</div>
                         </div>
                         <div class="testimonial-content">
-                            <p>"Дочь всегда мечтала о 3D-графике. Благодаря курсу Blender создала первую сцену и теперь планирует связать карьеру с геймдевом!"</p>
+                            <p>"Дочь всё очень хотела попробовать создавать 3д модельки. В итоге рад, что ей понравилось заниматься этим, спасибо!"</p>
                         </div>
                     </div>
                 </div>
@@ -652,6 +653,9 @@
                                     <strong>1500+</strong>
                                     <span>строк кода</span>
                                 </div>
+                                <button class="btn btn-primary" onclick="scrollToForm('Unity')">
+                                    Записаться на пробное занятие →
+                                </button>
                             </div>
                         </div>
                     </article>
@@ -671,9 +675,12 @@
                                     <span>Разработки</span>
                                 </div>
                                 <div class="case-stat">
-                                    <strong>800+</strong>
-                                    <span>пользователей</span>
+                                    <strong>400+</strong>
+                                    <span>строк кода</span>
                                 </div>
+                                <button class="btn btn-primary" onclick="scrollToForm('Python')">
+                                    Записаться на пробное занятие →
+                                </button>
                             </div>
                         </div>
                     </article>
@@ -686,7 +693,7 @@
                         <div class="case-content">
                             <h3>Летающий островок</h3>
                             <div class="case-author">Анна, 15 лет</div>
-                            <p class="case-description">3D-сцена острова с домиком и барашкем.</p>
+                            <p class="case-description">3D-сцена парящего острова с домом, облаками и барашкем. Все модели сделаны в стиле LowPoly.</p>
                             <div class="case-stats">
                                 <div class="case-stat">
                                     <strong>4 недели</strong>
@@ -696,6 +703,9 @@
                                     <strong>8</strong>
                                     <span>моделей</span>
                                 </div>
+                                <button class="btn btn-primary" onclick="scrollToForm('Blender')">
+                                    Записаться на пробное занятие →
+                                </button>
                             </div>
                         </div>
                     </article>
@@ -718,6 +728,9 @@
                                     <strong>18</strong>
                                     <span>экранов</span>
                                 </div>
+                                <button class="btn btn-primary" onclick="scrollToForm('Figma')">
+                                    Записаться на пробное занятие →
+                                </button>
                             </div>
                         </div>
                     </article>
@@ -931,7 +944,12 @@
         <div class="wrap">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo">🔮 PrismaClub</div>
+                    <div>
+                        <a class="logo" href="#hero">
+                            <img src="images/prismaclub-logo.png" alt="PrismaClub Logo" class="logo-image">
+                            <span class="logo-text">Prisma<span class="logo-accent">Club</span></span>
+                        </a>
+                    </div>
                     <p>IT-курсы для подростков 12-17 лет</p>
                     <div class="footer-contacts">
                         <a href="tel:+79131244284">📞 +7 913 124-42-84</a>
@@ -960,7 +978,7 @@
             
             <div class="footer-bottom">
                 <div class="footer-meta">
-                    <span>© 2024 PrismaClub. Объединение самозанятых наставников.</span>
+                    <span>© 2026 PrismaClub. Объединение самозанятых наставников.</span>
                     <div class="footer-legals">
                         <a href="#">Политика конфиденциальности</a>
                         <a href="#">Договор-оферта</a>
