@@ -2888,3 +2888,967 @@ footer {
         font-size: 32px;
     }
 }
+
+/* =========================================================
+   FINAL MOBILE COMPACT PATCH
+   Only affects tablets/phones. Desktop styles above stay unchanged.
+   ========================================================= */
+@media (max-width: 768px) {
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    .wrap {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .progress-container {
+        height: 3px;
+    }
+
+    header {
+        z-index: 1100;
+    }
+
+    .nav {
+        min-height: 56px;
+        padding: 6px 0;
+    }
+
+    .logo-image {
+        width: 46px;
+        height: 46px;
+    }
+
+    .logo-text {
+        font-size: 21px;
+        letter-spacing: -0.7px;
+    }
+
+    .mobile-menu-btn {
+        width: 42px;
+        height: 42px;
+        padding: 9px;
+    }
+
+    .topnav.active {
+        top: calc(100% + 6px);
+        left: 14px;
+        right: 14px;
+        padding: 12px;
+        gap: 6px;
+        border-radius: 18px;
+    }
+
+    .topnav.active .navlink,
+    .topnav.active .btn {
+        min-height: 42px;
+        font-size: 15px;
+    }
+
+    .hero {
+        padding: 22px 0 30px;
+    }
+
+    .hero .wrap {
+        gap: 18px;
+    }
+
+    .hero-badge {
+        margin-bottom: 14px;
+        padding: 7px 12px;
+        font-size: 13px;
+        line-height: 1.35;
+        border-radius: 16px;
+    }
+
+    .hero-title {
+        font-size: clamp(28px, 7.4vw, 36px);
+        line-height: 1.08;
+        margin-bottom: 12px;
+        letter-spacing: -1px;
+    }
+
+    .highlight::after {
+        height: 3px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        line-height: 1.48;
+        margin-bottom: 16px;
+    }
+
+    .hero-stats {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 8px;
+        margin-bottom: 0;
+    }
+
+    .hero-stats .stat {
+        padding: 10px 6px;
+        border-radius: 14px;
+    }
+
+    .hero-stats .stat-number {
+        font-size: 25px;
+        line-height: 1;
+        padding: 0 0 3px;
+        margin: 0;
+    }
+
+    .hero-stats .stat-label {
+        font-size: 11.5px;
+        line-height: 1.25;
+    }
+
+    .hero-visual {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .hero-image-wrapper {
+        max-width: 360px;
+    }
+
+    .hero-image {
+        max-height: 255px;
+        object-fit: contain;
+    }
+
+    .achievement-badge.corner {
+        width: 84px;
+        height: 84px;
+        right: 0;
+        bottom: 0;
+    }
+
+    .achievement-badge.corner .number {
+        font-size: 22px;
+        margin-left: 16px;
+        margin-top: 18px;
+    }
+
+    .achievement-badge.corner .label {
+        font-size: 12px;
+        margin-left: 10px;
+        line-height: 1.15;
+    }
+
+    .booking-banner {
+        width: calc(100% - 24px);
+        max-width: 520px;
+        margin: 14px auto 0;
+        padding: 16px;
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+    }
+
+    .booking-top-row {
+        height: auto;
+        gap: 9px;
+        margin-bottom: 14px;
+    }
+
+    .urgency-badge {
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+        padding: 7px 10px;
+        font-size: 13px;
+        line-height: 1.25;
+        border-radius: 999px;
+    }
+
+    .urgency-timer {
+        justify-content: center;
+        gap: 6px;
+        text-align: center;
+        flex-direction: row;
+    }
+
+    .urgency-timer span {
+        font-size: 13px;
+    }
+
+    .timer {
+        margin-left: 4px;
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    .booking-form-grid,
+    .booking-form,
+    .cta-form {
+        gap: 12px;
+    }
+
+    .form-row,
+    .form-grid {
+        gap: 10px;
+    }
+
+    .form-label {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    input,
+    select,
+    textarea {
+        min-height: 44px;
+        padding: 11px 13px;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+
+    textarea {
+        min-height: 84px;
+    }
+
+    .course-pills-horizontal {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px;
+    }
+
+    .course-pills-horizontal .course-pill {
+        min-width: 0;
+        min-height: 44px;
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 14px;
+        line-height: 1.15;
+        border-radius: 12px;
+        white-space: normal;
+    }
+
+    .course-pills-horizontal .course-pill:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .course-pills-icon {
+        width: 24px;
+        max-width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .btn,
+    .btn-large {
+        min-height: 45px;
+        padding: 11px 14px;
+        font-size: 15px;
+        line-height: 1.2;
+        border-radius: 13px;
+    }
+
+    .form-footer {
+        padding-top: 12px;
+        gap: 8px;
+    }
+
+    .checkbox {
+        align-items: flex-start;
+        font-size: 12.5px;
+        line-height: 1.32;
+    }
+
+    .checkmark {
+        flex: 0 0 18px;
+        margin-top: 1px;
+    }
+
+    .guarantee {
+        font-size: 12.5px;
+        line-height: 1.32;
+    }
+
+    .after-hero-cta {
+        display: none;
+    }
+
+    .trust,
+    .results,
+    #tracks,
+    .process,
+    #mentors,
+    #testimonials,
+    #cases,
+    .pricing,
+    #faq,
+    #final-cta,
+    .reviews {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        font-size: clamp(25px, 6.6vw, 31px);
+        line-height: 1.13;
+        margin-bottom: 10px;
+        letter-spacing: -0.7px;
+    }
+
+    .section-sub {
+        font-size: 15px;
+        line-height: 1.45;
+        margin-bottom: 24px;
+    }
+
+    .trust-grid,
+    .stats-grid,
+    .tracks-grid,
+    .mentors-grid,
+    .testimonials-grid,
+    .cases-grid,
+    .pricing-grid,
+    .reviews-grid {
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .trust-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-align: left;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .trust-icon {
+        flex: 0 0 56px;
+    }
+
+    .trust-icon img {
+        width: 56px;
+        height: 56px;
+        margin: 0;
+        object-fit: contain;
+    }
+
+    .trust-content h3 {
+        font-size: 17px;
+        line-height: 1.2;
+        margin-bottom: 4px;
+    }
+
+    .trust-content p {
+        font-size: 13.5px;
+        line-height: 1.35;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stat-card {
+        padding: 14px 10px;
+        border-radius: 16px;
+    }
+
+    .stat-icon img {
+        width: 46px;
+        height: 46px;
+        object-fit: contain;
+    }
+
+    .stat-number {
+        font-size: 29px;
+        line-height: 1;
+        padding: 7px 0 4px;
+        margin: 0;
+    }
+
+    .stat-label {
+        font-size: 12.5px;
+        line-height: 1.28;
+    }
+
+    .track-card,
+    .testimonial-card,
+    .pricing-card,
+    .review-card,
+    .case-content,
+    .final-cta-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .track-header {
+        gap: 11px;
+        margin-bottom: 12px;
+        min-height: 0;
+    }
+
+    .track-icon img,
+    .track-icon .blender-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .track-header h3 {
+        font-size: 21px;
+        line-height: 1.18;
+        letter-spacing: -0.3px;
+    }
+
+    .track-result {
+        padding: 10px 12px;
+        margin-bottom: 12px;
+        font-size: 14.5px;
+        line-height: 1.35;
+    }
+
+    .track-content {
+        margin-bottom: 14px;
+    }
+
+    .track-features {
+        margin-bottom: 12px;
+    }
+
+    .track-features li {
+        position: relative;
+        display: block;
+        min-height: 32px;
+        padding: 8px 0 8px 42px;
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .track-features li img {
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 30px;
+        height: 30px;
+        padding-right: 0;
+        object-fit: contain;
+    }
+
+    .track-features li strong {
+        display: inline;
+        padding-right: 3px;
+    }
+
+    .track-duration {
+        padding: 9px 10px;
+        font-size: 13px;
+        line-height: 1.25;
+        border-radius: 12px;
+    }
+
+    .track-actions {
+        gap: 9px;
+    }
+
+    .price {
+        font-size: 18px;
+    }
+
+    .process-timeline {
+        margin-top: 24px;
+    }
+
+    .process-timeline::before {
+        left: 19px;
+    }
+
+    .process-item {
+        margin-bottom: 20px;
+    }
+
+    .process-step {
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+        font-size: 16px;
+    }
+
+    .process-content h3 {
+        font-size: 17px;
+        line-height: 1.25;
+        margin-bottom: 5px;
+    }
+
+    .process-content p {
+        font-size: 14.5px;
+        line-height: 1.42;
+    }
+
+    .mentor-card {
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        align-items: start;
+        gap: 13px;
+        padding: 16px;
+        text-align: left;
+        border-radius: 16px;
+    }
+
+    .mentor-photo {
+        width: 88px;
+    }
+
+    .mentor-photo img {
+        width: 88px;
+        height: 88px;
+        border-radius: 14px;
+    }
+
+    .mentor-exp {
+        bottom: -6px;
+        padding: 3px 8px;
+        font-size: 10px;
+        border-radius: 10px;
+    }
+
+    .mentor-info h3 {
+        font-size: 20px;
+        line-height: 1.15;
+        margin-bottom: 3px;
+    }
+
+    .mentor-role {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .mentor-bio {
+        display: none;
+    }
+
+    .mentor-stats {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        margin-bottom: 10px;
+        font-size: 12.5px;
+        line-height: 1.25;
+        text-align: left;
+    }
+
+    .mentor-stats .stat {
+        text-align: left;
+    }
+
+    .mentor-info .btn {
+        width: 100%;
+        min-height: 40px;
+        padding: 9px 10px;
+        font-size: 12.5px;
+        line-height: 1.2;
+    }
+
+    .testimonial-author {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .author-avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    .author-name {
+        font-size: 14.5px;
+        line-height: 1.25;
+    }
+
+    .author-course {
+        font-size: 12.5px;
+    }
+
+    .stars {
+        font-size: 14px;
+    }
+
+    .testimonial-content,
+    .testimonial-content p {
+        margin-bottom: 0;
+        font-size: 14.5px;
+        line-height: 1.45;
+    }
+
+    .case-image {
+        height: 168px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .case-content h3 {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .case-author {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .case-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 12px;
+        font-size: 14.5px;
+        line-height: 1.4;
+    }
+
+    .case-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .case-stat strong {
+        font-size: 17px;
+    }
+
+    .case-stat span {
+        font-size: 10.5px;
+    }
+
+    .case-stats .btn {
+        grid-column: 1 / -1;
+    }
+
+    .pricing-card {
+        padding: 18px 16px;
+    }
+
+    .pricing-header {
+        margin-bottom: 14px;
+        padding-bottom: 14px;
+    }
+
+    .pricing-header h3 {
+        font-size: 20px;
+        line-height: 1.22;
+        margin-bottom: 8px;
+    }
+
+    .pricing-header .price {
+        font-size: 34px;
+        line-height: 1.05;
+    }
+
+    .price-sub {
+        font-size: 12.5px;
+    }
+
+    .pricing-features {
+        margin-bottom: 16px;
+    }
+
+    .pricing-features li {
+        padding: 7px 0;
+        font-size: 14.5px;
+        line-height: 1.32;
+    }
+
+    .save {
+        margin-bottom: 10px;
+        font-size: 14.5px;
+    }
+
+    .popular-badge {
+        top: -10px;
+        font-size: 12px;
+        padding: 5px 14px;
+    }
+
+    .faq-grid {
+        margin-top: 24px;
+    }
+
+    .faq-item {
+        margin-bottom: 10px;
+        border-radius: 14px;
+    }
+
+    .faq-question {
+        padding: 13px 14px;
+    }
+
+    .faq-question h3 {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
+    .faq-answer,
+    .faq-answer.active {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .faq-answer.active {
+        padding-bottom: 14px;
+    }
+
+    .faq-answer p {
+        font-size: 14.5px;
+        line-height: 1.45;
+    }
+
+    .final-cta-card {
+        gap: 18px;
+    }
+
+    .cta-content h2 {
+        font-size: 24px;
+        line-height: 1.15;
+        margin-bottom: 10px;
+    }
+
+    .cta-content p {
+        font-size: 14.5px;
+        line-height: 1.42;
+        margin-bottom: 14px;
+    }
+
+    .cta-features {
+        gap: 7px;
+    }
+
+    .feature {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    .footer-content {
+        padding: 30px 0 20px;
+        gap: 20px;
+    }
+
+    .footer-column h4 {
+        margin-bottom: 10px;
+    }
+
+    .footer-column a {
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .footer-bottom {
+        padding: 16px 0;
+    }
+
+    .floating-whatsapp {
+        right: 12px;
+        bottom: 12px;
+        gap: 0;
+    }
+
+    .whatsapp-button,
+    .floating-whatsapp.expanded .whatsapp-button {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        padding: 0;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(59, 130, 246, 0.28);
+        opacity: 0.94;
+    }
+
+    .whatsapp-button svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .floating-whatsapp.expanded .call-button-text,
+    .whatsapp-tooltip {
+        display: none !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .wrap {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .logo-image {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo-text {
+        font-size: 19px;
+    }
+
+    .hero {
+        padding-top: 18px;
+    }
+
+    .hero-title {
+        font-size: 29px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .hero-stats {
+        gap: 6px;
+    }
+
+    .hero-stats .stat {
+        padding: 9px 5px;
+    }
+
+    .hero-stats .stat-number {
+        font-size: 22px;
+    }
+
+    .hero-stats .stat-label {
+        font-size: 10.8px;
+    }
+
+    .hero-image {
+        max-height: 220px;
+    }
+
+    .booking-banner {
+        width: calc(100% - 16px);
+        padding: 14px;
+    }
+
+    .course-pills-horizontal {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .course-pills-horizontal .course-pill {
+        font-size: 13.5px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .trust,
+    .results,
+    #tracks,
+    .process,
+    #mentors,
+    #testimonials,
+    #cases,
+    .pricing,
+    #faq,
+    #final-cta,
+    .reviews {
+        padding: 34px 0;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .section-sub {
+        font-size: 14.5px;
+        margin-bottom: 20px;
+    }
+
+    .trust-grid,
+    .stats-grid,
+    .tracks-grid,
+    .mentors-grid,
+    .testimonials-grid,
+    .cases-grid,
+    .pricing-grid,
+    .reviews-grid {
+        margin-top: 20px;
+    }
+
+    .stats-grid {
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 12px 8px;
+    }
+
+    .stat-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stat-number {
+        font-size: 26px;
+    }
+
+    .stat-label {
+        font-size: 11.7px;
+    }
+
+    .track-header h3 {
+        font-size: 19px;
+    }
+
+    .track-features li {
+        padding-left: 38px;
+        font-size: 13.5px;
+    }
+
+    .track-features li img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .mentor-card {
+        grid-template-columns: 78px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .mentor-photo,
+    .mentor-photo img {
+        width: 78px;
+        height: 78px;
+    }
+
+    .mentor-info h3 {
+        font-size: 18px;
+    }
+
+    .mentor-role {
+        font-size: 13px;
+    }
+
+    .mentor-stats {
+        font-size: 12px;
+    }
+
+    .mentor-info .btn {
+        font-size: 12px;
+    }
+
+    .case-image {
+        height: 150px;
+    }
+
+    .pricing-header .price {
+        font-size: 31px;
+    }
+
+    .floating-whatsapp {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .whatsapp-button,
+    .floating-whatsapp.expanded .whatsapp-button {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+    }
+}
