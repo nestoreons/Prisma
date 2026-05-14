@@ -383,18 +383,6 @@ document.addEventListener('DOMContentLoaded', function() {
             to { transform: translateX(100%); opacity: 0; }
         }
         
-        .topnav.active {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: 16px;
-        }
-        
         .mobile-menu-btn.active span:nth-child(1) {
             transform: rotate(45deg) translate(6px, 6px);
         }
